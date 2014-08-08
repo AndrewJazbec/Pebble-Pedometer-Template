@@ -1,4 +1,4 @@
-Pebble-Pedometer-Template
+README
 =========================
 
-Simple Pedometer Template
+This is a pedometer template for the pebble
