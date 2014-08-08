@@ -1,4 +1,5 @@
 //Created By A 14 Year Old Named Andrew Jazbec
+//To use this template for anything else than a pedometer just change ACCEL_AXIS_X on line 49
 
 
 //INTRUCTIONS
@@ -6,23 +7,23 @@
 
 #include <pebble.h>
 
-#define NUM_PUSHES_PKEY 1
-#define NUM_PUSHES_DEFAULT 0
+#define NUM_STEPS_PKEY 1
+#define NUM_STEPS_DEFAULT 0
 
 Window *window;
 TextLayer *text_layer;
 
-static int pushes = NUM_PUSHES_DEFAULT;
+static int steps = NUM_STEPS_DEFAULT;
 
 static void update_text1() {
   static char body_text[50];
-  snprintf(body_text, sizeof(body_text), "%u", pushes);
+  snprintf(body_text, sizeof(body_text), "%u", steps);
   text_layer_set_text(text_layer, body_text);
 }
 
 //Long Click Press
 void select_long_click_handler(ClickRecognizerRef recognizer, void *context) {
-  pushes = 0;
+  steps = 0;
   update_text1();
 }
 
@@ -39,8 +40,7 @@ static void click_config_provider(void *context) {
 
 void shake(void)
 {
-  pushes=pushes;
-  pushes=pushes+1;
+  steps=steps+1;
   update_text1();
 }
 
@@ -77,7 +77,7 @@ void handle_init(void) {
     .unload = window_unload,
   });
   
-  pushes = persist_exists(NUM_PUSHES_PKEY) ? persist_read_int(NUM_PUSHES_PKEY) : NUM_PUSHES_DEFAULT;
+  steps = persist_exists(NUM_STEPS_PKEY) ? persist_read_int(NUM_STEPS_PKEY) : NUM_STEPS_DEFAULT;
   
   window_stack_push(window, true /* Animated */);
 
@@ -88,7 +88,7 @@ void handle_init(void) {
 }
 
 void handle_deinit(void) {
-  persist_write_int(NUM_PUSHES_PKEY, pushes);
+  persist_write_int(NUM_STEPS_PKEY, steps);
 
 	// Destroy the window
 	window_destroy(window);
