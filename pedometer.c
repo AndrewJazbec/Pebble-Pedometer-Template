@@ -1,3 +1,9 @@
+//Created By A 14 Year Old Named Andrew Jazbec
+
+
+//INTRUCTIONS
+//Hold Select To clear the number of steps
+
 #include <pebble.h>
 
 #define NUM_PUSHES_PKEY 1
