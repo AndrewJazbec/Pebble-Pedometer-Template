@@ -1,0 +1,19 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "andrew.jazbec@gmail.com",
+    "longName": "Shake To Increase",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "shortName": "Shake To Increase",
+    "uuid": "3a462856-fe74-4497-8760-9f49307868e2",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
